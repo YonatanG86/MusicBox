@@ -8,6 +8,7 @@ export function useCont() {
 
 const MUSIC = [
 	{ title: 'Stutter Breakbeats', src: '/music/120stutterbreakbeats16.mp3' },
+	{ title: 'Futur Funk', src: '/music/120futurefunkbeats25.mp3' },
 	{ title: 'Bass Warwick', src: '/music/BassWarwickheavyfunkgrooveonE120BPM.mp3' },
 	{ title: 'Electric Guitar', src: '/music/electricguitarcoutryslide120bpmB.mp3' },
 	{ title: 'Stompy Slosh', src: '/music/FUD120StompySlosh.mp3' },
