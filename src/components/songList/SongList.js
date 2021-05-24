@@ -24,7 +24,7 @@ function SongList() {
 				</button>
 			</div>
 			{saveLists.map((song, index) => {
-				return <Song song={song} index={index} />;
+				return <Song song={song} id={index} />;
 			})}
 		</div>
 	);
