@@ -1,0 +1,41 @@
+import F1 from '../../musicFiles/120stutterbreakbeats16.mp3';
+import F2 from '../../musicFiles/120futurefunkbeats25.mp3';
+import F3 from '../../musicFiles/BassWarwickheavyfunkgrooveonE120BPM.mp3';
+import F4 from '../../musicFiles/electricguitarcoutryslide120bpmB.mp3';
+import F5 from '../../musicFiles/FUD120StompySlosh.mp3';
+import F6 from '../../musicFiles/GrooveB120bpmTanggu.mp3';
+import F7 from '../../musicFiles/MazePolitics120Perc.mp3';
+import F8 from '../../musicFiles/PAS3GROOVE1.03B.mp3';
+import F9 from '../../musicFiles/SilentStar120EmOrganSynth.mp3';
+
+const MF1 = new Audio(F1);
+MF1.title = 'Stutter';
+MF1.playing = false;
+const MF2 = new Audio(F2);
+MF2.title = 'Futur Funk';
+MF2.playing = false;
+const MF3 = new Audio(F3);
+MF3.title = 'Bass Warwick';
+MF3.playing = false;
+const MF4 = new Audio(F4);
+MF4.title = 'Electric Guitar';
+MF4.playing = false;
+const MF5 = new Audio(F5);
+MF5.title = 'Stompy Slosh';
+MF5.playing = false;
+const MF6 = new Audio(F6);
+MF6.title = 'Groove 1';
+MF6.playing = false;
+const MF7 = new Audio(F7);
+MF7.title = 'Maze Politics';
+MF7.playing = false;
+const MF8 = new Audio(F8);
+MF8.title = 'Groove 2';
+MF8.playing = false;
+const MF9 = new Audio(F9);
+MF9.title = 'Organ Synth';
+MF9.playing = false;
+
+const musicFiles = [MF1, MF2, MF3, MF4, MF5, MF6, MF7, MF8, MF9];
+
+export default musicFiles;

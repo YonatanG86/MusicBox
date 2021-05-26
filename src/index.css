@@ -7,6 +7,10 @@
 
 body {
     background-color: #DDD;
+    background-image: url('/src/background/test-removebg-preview2.png');
+    background-repeat:no-repeat;
+    background-size:auto 100%;
+    left: 50%;
 }
 
 .App {
@@ -17,7 +21,7 @@ body {
     min-height: 100vh;
 }
 
-.c-player, .c-songlist {
+.component {
     display: block;
     background-color: #313131;
     width: 350px;
@@ -31,40 +35,15 @@ body {
     padding: 30px; 
 }
 
-.c-player > h4 {
-    color: #FFF;
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: 500;
-    text-align: center;
-}
 
-.c-player > p {
-    color: #AAA;
-    font-size: 14px;
-    text-align: center;
-    font-weight: 600;
-    
-}
-
-.c-player--details .details-title {
-    color: #EEE;
-    font-size: 28px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8), -2px -2px 4px rgba(255,255,255,0.4);
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.c-player--controls {
+.c-recorder .player-controls {
     display: flex;
-    align-items: center;
+    align-items: center;    
     justify-content: center;
-    margin-bottom: 30px;
 }
-
-.c-player--controls .play-btn {
+.c-recorder .player-btn {
     display: flex;
-    margin: 0 30px;
+    margin-top: 15px;
     padding: 20px;
     border-radius: 50%;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8), -4px -4px 10px rgba(255, 255, 255, 0.4), inset -4px -4px 10px rgba(0, 0, 0, 0.4), inset 4px 4px 10px rgba(255, 255, 255, 0.4);
@@ -72,57 +51,110 @@ body {
     outline: none;
     background-color: #FFCE00;
     color: #FFF;
-    font-size: 24px;
+    font-size: 15px;
     cursor: pointer;
-}.play-btn:hover{
+}.player-btn:hover{
     color: rgb(148, 57, 57);
 }
 
-.c-player--controls .skip-btn {
-    background: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    color: #888;
-    font-size: 18px;
-}.skip-btn:hover{
-    color: rgb(148, 57, 57);
+.c-recorder .red {
+    background-color: #e62214;
 }
 
+.c-recorder audio{
+    box-sizing:unset;
+    margin-left: -10%;
+}
+.c-recorder audio::-webkit-media-controls-panel{
+    justify-self: center;
+    
+    background-color: #FFCE00;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8), -4px -4px 10px rgba(255, 255, 255, 0.4), inset -4px -4px 10px rgba(0, 0, 0, 0.4), inset 4px 4px 10px rgba(255, 255, 255, 0.4);
+}
+
+.c-recorder .left-btn{
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+}
+
+.c-recorder .mid-btn{
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+}
+
+.c-recorder .right-btn{
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+}
 
 
 .c-song{
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.c-song-name{
     color: #FFF;
     font-size: 12px;
     font-weight: 500;
     height: 45px;
-    text-align: left;
+    text-align: center;
 
-    display: inline-flex;
-    flex-direction: row;
-    background-color: #87b13b;
+    display: flex;
+    flex-direction: column;
+    background-color: #30b12b;
     width: 86px;
+    position:relative;
     
     margin: 5px;
+    margin-bottom: 30px;
     padding: 5px;
     border-radius: 5px;
-    box-shadow: inset -6px -6px 12px rgba(0, 0, 0, 0.377), inset 6px 6px 12px rgba(255, 255, 255, 0.26);
+    box-shadow: inset -6px -0px 12px rgba(0, 0, 0, 0.377), inset 6px 0px 12px rgba(255, 255, 255, 0.26);
 }
-.c-song > .songName {
+.c-song-name::after{
+    content: " ";
+    width: 86px;
+    height: 25px;
+    background-color: #30b12b;
+    box-shadow: inset -6px -6px 12px rgba(0, 0, 0, 0.377), inset 6px 6px 12px rgba(255, 255, 255, 0.26);
+    border-radius:  0 0 50% 50%;
+    /* border-top: #313131 2px solid; */
+
+    position: absolute;
+    bottom: -40%;
+    right: -5px;
+    left: 0px;
+    
+}
+.c-song-name > .songName {
+    margin: auto auto;
     overflow:hidden;
 }
-
-.c-song > .move-btn {
-    margin: 0 4px;
-    background: none;
+.c-song >.play-btn {
+    align-self: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    /* margin-top: -15px; */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8), -4px -4px 10px rgba(255, 255, 255, 0.4), inset -4px -4px 10px rgba(0, 0, 0, 0.4), inset 4px 4px 10px rgba(255, 255, 255, 0.4);
     border: none;
     outline: none;
-    cursor: pointer;
-    color: rgb(41, 39, 39);
-    font-size: 13px;
-}.move-btn:hover {
+    background-color: #FFCE00;
+    color: #FFF;
+    font-size: 8px;
+    cursor: pointer;z-index: 15;
+
+    position: absolute;
+     bottom: 20%;
+
+}.play-btn:hover{
     color: rgb(148, 57, 57);
 }
+
 
 .c-songlist > .panal {
     display: flex;
@@ -145,4 +177,69 @@ body {
     cursor: pointer;
 }.panal-btn:hover{
     color: rgb(148, 57, 57);
+}
+
+.c-recording{
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.c-recording .recording-btn{
+    /* align-self: center; */
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    /* margin-top: -15px; */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8), -4px -4px 10px rgba(255, 255, 255, 0.4), inset -4px -4px 10px rgba(0, 0, 0, 0.4), inset 4px 4px 10px rgba(255, 255, 255, 0.4);
+    border: none;
+    outline: none;
+    background-color: #30b12b;
+    color: #FFF;
+    font-size: 8px;
+    cursor: pointer;
+    z-index: 15;
+}.recording-btn:hover{
+    color: rgb(148, 57, 57);
+}
+
+.c-recording .left-btn{
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+}
+
+.c-recording .mid-btn{
+    background-color: #FFCE00;
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+}
+
+.c-recording .right-btn{
+    background-color: #db710e;
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+}
+.c-recording .red {
+    background-color: #e62214;
+}
+
+.c-savedRecordings  .recordingHeader {
+    text-align: center;
+    color: #FFF;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8), -2px -2px 4px rgba(255,255,255,0.4);
+
+    margin-top: -15px;
+    margin-bottom: 15px;
 }

@@ -1,22 +1,25 @@
-import React from 'react';
-import { useCont } from '../utilities/Context';
+import React, { useState, useRef } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight, faAngleLeft, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 
 function Song(props) {
-	const { changeSongIndex, removeSong } = useCont();
+	const [isPlaying, setIsPlaying] = useState(false);
+	const audioElement = useRef(null);
+
+	const playPause = () => {
+		setIsPlaying(() => !isPlaying);
+		props.playPause(props.id);
+	};
+
 	return (
-		<div className='c-song' id={props.index}>
-			<button className='move-btn' onClick={(e) => changeSongIndex(e, props.song.title, -1)}>
-				<FontAwesomeIcon icon={faAngleLeft} />
-			</button>
-			<div className='songName'>{props.song.title}</div>
-			<button className='move-btn' onClick={(e) => changeSongIndex(e, props.song.title, 1)}>
-				<FontAwesomeIcon icon={faAngleRight} />
-			</button>
-			<button className='move-btn' onClick={(e) => removeSong(e, props.index)}>
-				<FontAwesomeIcon icon={faTrashAlt} />
+		<div className='c-song'>
+			<div className='c-song-name' id={props.id}>
+				<audio src={props.song.src} ref={audioElement} type='audio/mpeg'></audio>
+				<div className='songName'>{props.song.title}</div>
+			</div>
+			<button className='play-btn' onClick={playPause}>
+				<FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
 			</button>
 		</div>
 	);
