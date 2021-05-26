@@ -12,13 +12,16 @@ function Song(props) {
 		props.playPause(props.id);
 	};
 
+	const btn_shake = (state) => {
+		return state ? 'shake' : '';
+	};
 	return (
 		<div className='c-song'>
 			<div className='c-song-name' id={props.id}>
 				<audio src={props.song.src} ref={audioElement} type='audio/mpeg'></audio>
 				<div className='songName'>{props.song.title}</div>
 			</div>
-			<button className='play-btn' onClick={playPause}>
+			<button className={'play-btn ' + btn_shake(isPlaying)} onClick={playPause}>
 				<FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
 			</button>
 		</div>
