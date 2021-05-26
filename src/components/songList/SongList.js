@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Song from './Song';
 import { useCont } from '../utilities/Context';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMicrophoneAlt, faPause } from '@fortawesome/free-solid-svg-icons';
-
 function SongList() {
 	const [timer, setTimer] = useState(0);
 	const { songs, updateSongList, checkIfOneInSongList, songsPlaying, songsWaiting } = useCont();

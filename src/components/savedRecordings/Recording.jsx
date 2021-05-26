@@ -17,13 +17,14 @@ function Recording(props) {
 		} else {
 			audioElement.current.pause();
 		}
-	}, [isPlaying]);
+	}, [isPlaying, isLoop]);
 
 	const playPause = () => {
 		setIsPlaying(() => !isPlaying);
 	};
 	const playRecordingInLoop = () => {
-		setIsLoop(() => !isLoop);
+		const state = !isLoop;
+		setIsLoop(state);
 		audioElement.current.loop = isLoop;
 	};
 

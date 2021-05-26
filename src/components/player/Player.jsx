@@ -17,7 +17,6 @@ function Player() {
 	const { recordings, saveLocalStorage, setRecordings } = useCont();
 
 	const saveBlob = () => {
-		const timeStamp = new Date().toUTCString();
 		let name = prompt('Please enter a name:', new Date().toUTCString());
 		if (name === null || name === '') {
 			setMessage('The file was not saved');
