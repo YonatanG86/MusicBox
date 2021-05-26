@@ -9,6 +9,7 @@ import { useCont } from '../utilities/Context';
 
 function Player() {
 	const [url, setUrl] = useState('');
+	const [message, setMessage] = useState('');
 	const onStop = useCallback((blob, blobUrl) => {
 		setUrl(blobUrl);
 	}, []);
@@ -17,12 +18,18 @@ function Player() {
 
 	const saveBlob = () => {
 		const timeStamp = new Date().toUTCString();
-		if (url) {
-			const newSave = { name: timeStamp, song: url };
-			const arr = recordings;
-			arr.push(newSave);
-			setRecordings(arr);
-			saveLocalStorage();
+		let name = prompt('Please enter give a name:', new Date().toUTCString());
+		if (name === null || name === '') {
+			setMessage('The file was not saved');
+		} else {
+			if (url) {
+				const newSave = { name: name, song: url };
+				const arr = recordings;
+				arr.push(newSave);
+				setRecordings(arr);
+				saveLocalStorage();
+				setMessage(name + ' was saved!');
+			}
 		}
 	};
 
@@ -56,6 +63,7 @@ function Player() {
 						</button>
 					</div>
 				)}
+				<div className='alert'>{message}</div>
 			</div>
 			<SavedRecordings />
 		</>
